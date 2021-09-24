@@ -16,4 +16,4 @@ the report should contain itemID, buy price, sell price, total num of item bough
 the main class should have
 scanner to read file product: scanP
 scanner to read file transactions: scanT
-scanner to read user input: scanI
+Array list arrProd
