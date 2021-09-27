@@ -13,6 +13,8 @@ the final modual should be able to:
 output to the screen a report of a product (user inputs itemID) 
 the report should contain itemID, buy price, sell price, total num of item bought, total num sold, num left on hand, prophit from item, taxes owed,
 
+the trans modual should keep track of buying and selling of products with a string in put from the transactions file
+
 the main class should have
 scanner to read file product: scanP
 scanner to read file transactions: scanT
