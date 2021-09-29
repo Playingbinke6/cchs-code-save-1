@@ -1,7 +1,11 @@
 import java.util.*;
+// Product Class, By: Zachary Ware
+
+
 
 public class Product
 {
+   // variable names
    private String ProductId;
    private double Bought;
    private double Sold;
@@ -11,16 +15,17 @@ public class Product
    
    public Product(String input)
     {
+        
         String[] x = input.split("\\s", 4);
-        x[0] = ProductId
+        x[0] = ProductId;
         Bought = Double.parseDouble(x[1]);
         Sold = Double.parseDouble(x[2]);
-        x[3] = Descr
+        x[3] = Descr;
         numSold = 0;
         numBought = 0;
         
     }
-    
+       // All the getters for my class
     public String getID()
     {
         return ProductId;
@@ -51,6 +56,7 @@ public class Product
         numSold += n;
     }
     
+    // toString to return this format
     public String toString()
       {
            String ans = ProductId + " " + Descr + " $" + Sold + " $" + Bought + " " + numSold + " " + numBought;
@@ -62,6 +68,8 @@ public class Product
     
     
 }
+   
+    
    
     
 
