@@ -7,33 +7,36 @@ public class Product
    private double Sold;
    private String Descr;
 
-   public Product(String pro, double buy, double sell, String Desc)
-    {
-        ProductId = pro;
-        Bought = buy;
-        Sold = sell;
-        Descr = Desc;
-    }
+  public Product(String pro, double buy, double sell, String Desc)
+  {
+       ProductId = pro;
+       Bought = buy;
+       Sold = sell;
+      Descr = Desc;
+   }
+   public String getID()
+   {
+       return ProductId;
+   }
+   public double getBuy()
+   {
+       return Bought;
+   }
+   public double getSell()
+   {
+       return Sold;
+   }
+   public String getDisc()
+   {
+       return Descr;
+   }
+   public String finalPrint()
+      {
+           String ans = ProductId + " " + Descr + " $" + Sold + " $" + Bought + " " + numSold + " " + numBought;
+           return ans;
+      } 
 
-    public String getID()
-    {
-        return ProductId;
-    }
-
-    public double getBuy()
-    {
-        return Bought;
-    }
-
-    public double getSell()
-    {
-        return Sold;
-    }
-
-    public String getDisc()
-    {
-        return Descr;
-    }
+   
 
 
 
