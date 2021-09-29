@@ -6,41 +6,64 @@ public class Product
    private double Bought;
    private double Sold;
    private String Descr;
-
-  public Product(String pro, double buy, double sell, String Desc)
-  {
-       ProductId = pro;
-       Bought = buy;
-       Sold = sell;
-      Descr = Desc;
-   }
-   public String getID()
-   {
-       return ProductId;
-   }
-   public double getBuy()
-   {
-       return Bought;
-   }
-   public double getSell()
-   {
-       return Sold;
-   }
-   public String getDisc()
-   {
-       return Descr;
-   }
-   public String finalPrint()
+   private int numSold;
+   private int numBought;
+   
+   public Product(String input)
+    {
+        String[] x = input.split("\\s", 4);
+        x[0] = ProductId
+        Bought = Double.parseDouble(x[1]);
+        Sold = Double.parseDouble(x[2]);
+        x[3] = Descr
+        numSold = 0;
+        numBought = 0;
+        
+    }
+    
+    public String getID()
+    {
+        return ProductId;
+    }
+    
+    public double getBuy()
+    {
+        return Bought;
+    }
+    
+    public double getSell()
+    {
+        return Sold;
+    }
+    
+    public String getDisc()
+    {
+        return Descr;
+    }
+    
+    public void addBought(int n);
+    {
+        numBought += n;
+    }
+    
+    public void addSold(int n);
+    {
+        numSold += n;
+    }
+    
+    public String toString()
       {
            String ans = ProductId + " " + Descr + " $" + Sold + " $" + Bought + " " + numSold + " " + numBought;
            return ans;
       } 
-
-   
-
-
-
+    
+    
+    
+    
+    
 }
+   
+    
 
 
 public class transMain
