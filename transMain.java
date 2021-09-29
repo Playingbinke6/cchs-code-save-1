@@ -1,5 +1,5 @@
 import java.util.*;
-//Tedy
+// Product Class, By: Zachary Ware
 public class Product
 {
    private String ProductId;
