@@ -1,5 +1,5 @@
 import java.util.*;
-//Tedy
+
 public class Product
 {
    private String ProductId;
@@ -70,15 +70,38 @@ public class transMain
 {
    public static void main(String[] args)
    {
-      Scanner scanP = new Scanner();
-      Scanner scanT = new Scanner();
+         File inP = new File("");
+         File inT = new File("");
+         Scanner scanP = new Scanner(in);
+         Scanner scanT = new Scanner(inT);
+         
+         ArrayList<Product> arrProd = new ArrayList;
+         ArrayList<String> arrtrans = new ArrayList;
+         
+         while(scanP.hasNextLine())
+         {
+            int i = 0;
+            String newLineP = scanP.nextLine();
+            arrProd[i] = Product(newLineP);
+            i++;
+         }
+         while(scanT.hasNextLine())
+         {
+            int i = 0;
+            String newLineT = scanT.nextLine();
+            trans(newLineT);
+            i++;
+         }
+         printReport();
+         
+
       
    }
-   public static void finalOut()
+   public static void printReport()
       {
          for (int i=0; i<arrProd.length; i++)
          {
-            
+            System.out.println(arrProd[i].toString());
          }
          
          //this should print out the final report for all items
@@ -104,6 +127,7 @@ public class transMain
    {
       Scanner scanP = new Scanner();
       Scanner scanT = new Scanner();
+      Product[] arrProd = new 
       
    }
    public static void finalOut()
