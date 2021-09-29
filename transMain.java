@@ -1,7 +1,8 @@
 import java.util.*;
-//Tedy
+// Product Class, By: Zachary Ware
 public class Product
 {
+   // variable names
    private String ProductId;
    private double Bought;
    private double Sold;
@@ -20,7 +21,7 @@ public class Product
         numBought = 0;
         
     }
-    
+       // All the getters for my class
     public String getID()
     {
         return ProductId;
@@ -51,17 +52,16 @@ public class Product
         numSold += n;
     }
     
+    // toString to return the Products format
     public String toString()
       {
            String ans = ProductId + " " + Descr + " $" + Sold + " $" + Bought + " " + numSold + " " + numBought;
            return ans;
       } 
-    
-    
-    
-    
-    
+ 
 }
+   
+    
    
     
 
