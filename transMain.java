@@ -74,42 +74,43 @@ public class Product
     
 
 
+
 public class transMain
 {
    public static void main(String[] args)
    {
          File inP = new File("");
          File inT = new File("");
-         Scanner scanP = new Scanner(in);
+         Scanner scanP = new Scanner(inP);
          Scanner scanT = new Scanner(inT);
+         double taxRate = Double.parseDouble(scanT.nextLine());
          
-         ArrayList<Product> arrProd = new ArrayList;
-         ArrayList<String> arrtrans = new ArrayList;
+         ArrayList<Product> arrProd = new ArrayList();
+         
          
          while(scanP.hasNextLine())
          {
             int i = 0;
             String newLineP = scanP.nextLine();
-            arrProd[i] = Product(newLineP);
+            Product prodTemp = new Product(newLineP);
+            arrProd.add(prodTemp);
             i++;
          }
          while(scanT.hasNextLine())
          {
-            int i = 0;
             String newLineT = scanT.nextLine();
             trans(newLineT);
-            i++;
          }
          printReport();
          
 
       
    }
-   public static void printReport()
+   public static void printReport(ArrayList)
       {
          for (int i=0; i<arrProd.length; i++)
          {
-            System.out.println(arrProd[i].toString());
+            System.out.println(arrProd.get(i).toString());
          }
          
          //this should print out the final report for all items
@@ -117,45 +118,30 @@ public class transMain
    public static void trans(String input)
       {
          String[] arrIn = input.split("\\s");
-         for (int i=0; i<arrProd.length; i++)
+         boolean buying;//if true then action is buying, if false action is selling
+         int numBS = Intger.parseIntger(arrIn[3]);
+         
+         if(arrIn.equals("buy"))//identfy if action is buying or selling
          {
-            String prodId = arrProd[i].getId();
-            if(prodId.equals(arrIn[1]))
-            {
-               
-            }
+            buying = true;
          }
          
-      }
-}
-
-public class transMain
-{
-   public static void main(String[] args)
-   {
-      Scanner scanP = new Scanner();
-      Scanner scanT = new Scanner();
-      Product[] arrProd = new 
-      
-   }
-   public static void finalOut()
-      {
-         for (int i=0; i<arrProd.length; i++)
+         int loc = -1;//saves the location for the matching ID in arrProd
+         for (int i=0; i<arrProd.length; i++)//cycles through all locations in attProd
          {
-            
-         }
-         
-         //this should print out the final report for all items
-      }
-   public static void trans(String input)
-      {
-         String[] arrIn = input.split("\\s");
-         for (int i=0; i<arrProd.length; i++)
-         {
-            String prodId = arrProd[i].getId();
+            String prodId = arrProd.get(i).getId();//sees if the productID match to the one we are looking for 
             if(prodId.equals(arrIn[1]))
             {
+               loc = i;
                
+               if(buying)//add the num sold/bought to the prodoct obj
+               {
+                  arrProd.get(i).addBought(numBS);
+               }
+               else
+               {
+                  arrProd.get(i).addSold(numBS);
+               }
             }
          }
          
