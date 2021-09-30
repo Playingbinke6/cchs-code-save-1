@@ -1,5 +1,5 @@
 import java.util.*;
-// Product Class, By: Zachary Ware
+// Product Class, By: Zachary Ware.
 
 
 
@@ -7,11 +7,11 @@ public class Product
 {
    // variable names
    private String ProductId;
-   private double Bought;
-   private double Sold;
-   private String Descr;
-   private int numSold;
-   private int numBought;
+   private double Bought; // Buy price
+   private double Sold;  // sell price
+   private String Descr; // Desription
+   private int numSold; // Number sold
+   private int numBought; // Number bought
    
    public Product(String input)
     {
@@ -25,7 +25,7 @@ public class Product
         numBought = 0;
         
     }
-       // All the getters for my class
+       // All the getters for my class.
     public String getID()
     {
         return ProductId;
@@ -46,28 +46,26 @@ public class Product
         return Descr;
     }
     
-    public void addBought(int n);
+    public void addBought(int n)
     {
         numBought += n;
     }
     
-    public void addSold(int n);
+    public void addSold(int n)
     {
         numSold += n;
     }
     
-    // toString to return this format
+    // toString to return this format.
     public String toString()
       {
            String ans = ProductId + " " + Descr + " $" + Sold + " $" + Bought + " " + numSold + " " + numBought;
            return ans;
       } 
-    
-    
-    
-    
-    
+
 }
+   
+    
    
     
    
