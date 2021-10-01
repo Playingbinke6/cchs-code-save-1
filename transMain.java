@@ -7,11 +7,11 @@ public class Product
 {
    // variable names
    private String ProductId;
-   private double Bought;
-   private double Sold;
-   private String Descr;
-   private int numSold;
-   private int numBought;
+   private double Bought;// but price
+   private double Sold;// sell price
+   private String Descr;// decription
+   private int numSold; // number sold
+   private int numBought; // number bought
    
    public Product(String input)
     {
@@ -46,12 +46,12 @@ public class Product
         return Descr;
     }
     
-    public void addBought(int n);
+    public void addBought(int n)
     {
         numBought += n;
     }
     
-    public void addSold(int n);
+    public void addSold(int n)
     {
         numSold += n;
     }
