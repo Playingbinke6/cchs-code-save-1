@@ -75,6 +75,8 @@ public class Product
 
 
 
+import java.util.*;
+
 public class transMain
 {
    public static void main(String[] args)
@@ -99,48 +101,48 @@ public class transMain
          while(scanT.hasNextLine())
          {
             String newLineT = scanT.nextLine();
-            trans(newLineT);
+            trans(newLineT, arrProd);
          }
-         printReport();
+         printReport(arrProd);
          
 
       
    }
-   public static void printReport(ArrayList)
+   public static void printReport(ArrayList<Product> arrProd)
       {
-         for (int i=0; i<arrProd.length; i++)
+         for (Product p:arrProd)
          {
-            System.out.println(arrProd.get(i).toString());
+            System.out.println(p.toString());
          }
          
          //this should print out the final report for all items
       }
-   public static void trans(String input)
+   public static void trans(String input, ArrayList<Product> arrProd)
       {
          String[] arrIn = input.split("\\s");
          boolean buying;//if true then action is buying, if false action is selling
-         int numBS = Intger.parseIntger(arrIn[3]);
+         String buySell = arrIn[2];
+         int numBS = Integer.parseInteger(buySell);
          
-         if(arrIn.equals("buy"))//identfy if action is buying or selling
+         if(arrIn[1].equals("buy"))//identfy if action is buying or selling
          {
             buying = true;
          }
          
-         int loc = -1;//saves the location for the matching ID in arrProd
-         for (int i=0; i<arrProd.length; i++)//cycles through all locations in attProd
+         for (Product p:arrProd)
          {
-            String prodId = arrProd.get(i).getId();//sees if the productID match to the one we are looking for 
-            if(prodId.equals(arrIn[1]))
+            String prodId = p.getID();//sees if the productID match to the one we are looking for 
+            
+            if(prodId.equals(arrIn[0]))
             {
-               loc = i;
                
                if(buying)//add the num sold/bought to the prodoct obj
                {
-                  arrProd.get(i).addBought(numBS);
+                  p.addBought(numBS);
                }
                else
                {
-                  arrProd.get(i).addSold(numBS);
+                  p.addSold(numBS);
                }
             }
          }
