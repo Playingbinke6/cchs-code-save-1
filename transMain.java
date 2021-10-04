@@ -1,6 +1,5 @@
-import java.util.*;
 // Product Class, By: Zachary Ware
-
+import java.util.*;
 
 
 public class Product
@@ -17,10 +16,10 @@ public class Product
     {
         
         String[] x = input.split("\\s", 4);
-        x[0] = ProductId;
+        ProductId = x[0];
         Bought = Double.parseDouble(x[1]);
         Sold = Double.parseDouble(x[2]);
-        x[3] = Descr;
+        Descr = x[3];
         numSold = 0;
         numBought = 0;
         
@@ -46,12 +45,12 @@ public class Product
         return Descr;
     }
     
-    public void addBought(int n);
+    public void addBought(int n)
     {
         numBought += n;
     }
     
-    public void addSold(int n);
+    public void addSold(int n)
     {
         numSold += n;
     }
@@ -68,6 +67,7 @@ public class Product
     
     
 }
+  
    
     
    
@@ -76,36 +76,46 @@ public class Product
 
 
 import java.util.*;
+import java.io.*;
 
 public class transMain
 {
    public static void main(String[] args)
    {
-         File inP = new File("");
-         File inT = new File("");
-         Scanner scanP = new Scanner(inP);
-         Scanner scanT = new Scanner(inT);
-         double taxRate = Double.parseDouble(scanT.nextLine());
+      try
+      {
+            File inP = new File("C:\\Users\\clarkthe\\Documents\\prog1\\products.txt");
+            File inT = new File("C:\\Users\\clarkthe\\Documents\\prog1\\transactions.txt");
+            Scanner scanP = new Scanner(inP);
+            Scanner scanT = new Scanner(inT);
+            double taxRate = Double.parseDouble(scanT.nextLine());
+            
+            ArrayList<Product> arrProd = new ArrayList<Product>();
+            
+            
+            while(scanP.hasNextLine())
+            {
+               int i = 0;
+               String newLineP = scanP.nextLine();
+               Product prodTemp = new Product(newLineP);
+               arrProd.add(prodTemp);
+               i++;
+            }
+            while(scanT.hasNextLine())
+            {
+               String newLineT = scanT.nextLine();
+               trans(newLineT, arrProd);
+            }
+            printReport(arrProd);
+            scanP.close();
+            scanT.close();
          
-         ArrayList<Product> arrProd = new ArrayList();
-         
-         
-         while(scanP.hasNextLine())
-         {
-            int i = 0;
-            String newLineP = scanP.nextLine();
-            Product prodTemp = new Product(newLineP);
-            arrProd.add(prodTemp);
-            i++;
-         }
-         while(scanT.hasNextLine())
-         {
-            String newLineT = scanT.nextLine();
-            trans(newLineT, arrProd);
-         }
-         printReport(arrProd);
-         
-
+      }
+      catch(FileNotFoundException|NoSuchElementException e)
+      {
+         System.out.println("An error occured");
+         e.printStackTrace();
+      }
       
    }
    public static void printReport(ArrayList<Product> arrProd)
@@ -120,9 +130,9 @@ public class transMain
    public static void trans(String input, ArrayList<Product> arrProd)
       {
          String[] arrIn = input.split("\\s");
-         boolean buying;//if true then action is buying, if false action is selling
+         boolean buying = true;//if true then action is buying, if false action is selling
          String buySell = arrIn[2];
-         int numBS = Integer.parseInteger(buySell);
+         int numBS = Integer.parseInt(buySell);
          
          if(arrIn[1].equals("buy"))//identfy if action is buying or selling
          {
@@ -132,7 +142,7 @@ public class transMain
          for (Product p:arrProd)
          {
             String prodId = p.getID();//sees if the productID match to the one we are looking for 
-            
+            //System.out.println("*" + prodId + "*");
             if(prodId.equals(arrIn[0]))
             {
                
